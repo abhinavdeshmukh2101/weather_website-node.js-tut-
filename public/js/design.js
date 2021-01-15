@@ -13,7 +13,7 @@ l.addEventListener('submit',(event)=>{
     mes1.textContent = 'loading...'
     mes2.textContent = ''
 
-    fetch('http://localhost:3000/weather?address='+search.value).then((response)=>{
+    fetch('/weather?address='+search.value).then((response)=>{
         response.json().then((data)=>{
             if(data.error){
                 mes1.textContent = data.error
