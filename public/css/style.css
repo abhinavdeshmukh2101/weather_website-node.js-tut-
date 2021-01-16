@@ -58,6 +58,7 @@ footer{
 }
 
 #searchPlace{
+    margin-top: 30px;
     height: 30px;
     width: 200px;
     font-size: 20px;
@@ -74,4 +75,16 @@ button{
     padding: 8px;
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+#message{
+    display: none;
+    color: blue;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 200px;
+    width: 350px;
+    border: 3px black solid;
+    position: absolute;
+    left: 43%;
+    margin-top: 90px;
 }

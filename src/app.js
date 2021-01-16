@@ -55,6 +55,7 @@ app.get('/help/*',(req,res)=>{
 
 app.get('/weather',(req,res)=>{     
 	// res.send('<h1>Weather</h1>')
+
 	if(!req.query.address){
 		res.send({
 			error: 'Please enter an address for finding weather reports!'
@@ -66,9 +67,9 @@ app.get('/weather',(req,res)=>{
 			res.send({error})
 		}
 
-		weatherForecast(latitude,longitude,(forecastData)=>{
-			if(error){
-				res.send({error})
+		weatherForecast(latitude,longitude,(error1,forecastData)=>{
+			if(error1){
+				res.send({error1})
 			}
 
 			res.send({
