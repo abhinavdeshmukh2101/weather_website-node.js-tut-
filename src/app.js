@@ -62,22 +62,22 @@ app.get('/weather',(req,res)=>{
 		})
 	}
 
-	geocode(req.query.address,(error,{latitude,longitude,location}={})=>{
+	geocode(req.query.address,(error,forecastData)=>{
 		if(error){
 			res.send({error})
 		}
 
-		weatherForecast(latitude,longitude,(error1,forecastData)=>{
-			if(error1){
-				res.send({error1})
-			}
-
-			res.send({
-				forecast: forecastData,
-				location,
-				address: req.query.address
-			})
+		res.send({
+			place: forecastData.place,
+			time: forecastData.time,
+			temperature: forecastData.temperature,
+			cond: forecastData.cond,
+			icon_img: forecastData.icon_img,
+			wind: forecastData.wind,
+			humid: forecastData.humid,
+			cloud: forecastData.cloud
 		})
+		
 	})
 })
 

@@ -1,23 +1,27 @@
 const request = require('request')
 
 const geocode = (address,callback)=>{
-    const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(address) + '.json?access_token=pk.eyJ1IjoiYWJoaW5hdi0yMTAxIiwiYSI6ImNrajBhems1ZjJpdncydW1tZ3F2djlrOHAifQ.0HkImM5UFWnP_cUD1n0lVg'
-
+    const url = 'http://api.weatherapi.com/v1/current.json?key=bb9dfc8c27c04ee89e240329211701&q='+encodeURIComponent(address);
     request({url,json:true},(error,{body})=>{
         if(error){
             callback('Unable to access the given location!',undefined)
-        }else if(body.features.length === 0){
-            callback('Unable to connect to internet!',undefined)
-        }else{
+        }
+        else if(body.error){
+            callback(body.error.message,undefined)
+        }
+        else{
             callback(undefined,{
-                latitude: body.features[0].center[1],
-                longitude: body.features[0].center[0],
-                location: body.features[0].place_name
+                place: body.location.name+' '+body.location.region+' '+body.location.country,
+                time: body.location.localtime,
+                temperature: body.current.temp_c,
+                cond: body.current.condition.text,
+                icon_img: body.current.condition.icon,
+                wind: body.current.wind_kph,
+                humid: body.current.humidity,
+                cloud: body.current.cloud
             })
         }
     })
-
 }
-
 
 module.exports = geocode

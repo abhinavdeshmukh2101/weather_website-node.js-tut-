@@ -1,44 +1,50 @@
 body{
-    color: brown;
+    color: whitesmoke;
     margin: auto;
     padding: 0 16px; 
-    font-size: 20px; 
+    font-size: 35px; 
     text-align: center;
 
     display: flex;
     flex-direction: column;
 }
 
-.button{
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-}
 
 .main-content{
+    position: relative;
     flex-grow: 1;
-    min-height: 100vh;
+    width: auto;
+    height: 1000px;
+    background: url(../images/sky1.jpg);
+
+}
+
+.text{
+    position: absolute;
+    left: 50%;right: 50%;
+    padding-top: 40px;
 }
 
 .button{
+    display: inline-block;
     color: white;
     border: 2px solid black;
     text-align: center;
-    justify-content: center;
     font-size: 20px;
     height: 25px;
     width: 90px;
     padding: 5px;
-    background: rgba(0,0,0,0.4);
+    background: greenyellow;
+    border-radius: 8px;
 }
 
 .button :hover{
     background-color: darkgreen;
-    color: yellow;
+    color: red;
 }
 
 footer{
-    color: grey;
+    color: yellow;
     border-top: 5px solid black;
     max-width: 650px;
     margin-top: 20px;
@@ -52,16 +58,18 @@ footer{
     padding: 20px;
 }
 
-#clickOnMe{
-    width: 80px;
+#searchButton1{
+    width: 100px;
     height: 35px;
+    font-size: 18px;
+    background-color: lightgoldenrodyellow;
 }
 
 #searchPlace{
     margin-top: 30px;
-    height: 30px;
+    height: 35px;
     width: 200px;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 input{
@@ -79,12 +87,21 @@ button{
 
 #message{
     display: none;
-    color: blue;
-    background-color: rgba(0, 0, 0, 0.4);
-    height: 200px;
-    width: 350px;
+    color: green;
+    height: 400px;
+    width: 500px;
     border: 3px black solid;
+    border-radius: 8px;
     position: absolute;
     left: 43%;
     margin-top: 90px;
+    font-size: 25px;
+    background-color:lightblue;
+    vertical-align: text-bottom;
+    text-align: left;
+}
+
+#sky{
+    width: auto;
+    height: 1000px;
 }
